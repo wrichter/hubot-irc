@@ -1,0 +1,7 @@
+oc project demo
+oc new-build https://github.com/wrichter/hubot-irc.gi
+oc new-app hubot-irc -l app=hubot-irc
+oc create -f https://raw.githubusercontent.com/wrichter/hubot-irc/master/hubot-irc-service.yaml
+oc expose service hubot-irc
+
+oc delete -n demo all --selector=app=hubot-irc
